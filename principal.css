@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #34a853;
+  --secondary-color: #f0f8ff;
+  --background-gradient: linear-gradient(135deg, #f0f8ff, #e6ffe6);
+  --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Verdana', sans-serif;
+}
+
 body {
   display: grid;
   grid-template-areas:
@@ -6,9 +15,9 @@ body {
     "footer";
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
-  margin: 0; 
+  margin: 0;
   max-width: 100%;
-  background-color: #34a853;
+  background-color: var(--primary-color);
 }
 
 header {
@@ -16,6 +25,14 @@ header {
   background-color: #010600;
   padding: 1rem;
   text-align: center;
+}
+
+header h1 {
+  font-family: var(--font-primary);
+  font-size: 2.2rem;
+  color: #ebf2ed;
+  text-shadow: var(--text-shadow);
+  text-transform: uppercase;
 }
 
 main {
@@ -26,38 +43,62 @@ main {
 footer {
   grid-area: footer;
   background-color: #000000;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
   color: #e8f5e9;
+  font-size: 1rem;
 }
+
 img {
-  max-width: 30%;
+  max-width: 100%;
   height: auto;
   display: block;
+  margin: 0 auto;
 }
 
-
-.ROADMAP {
+/* Contenedor principal */
+.definition-container {
   display: flex;
+  flex-direction: row; /* Imagen y texto uno al lado del otro (desktop) */
   justify-content: center;
+  align-items: center;
+  background: var(--background-gradient);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+  gap: 2rem; /* Espacio entre imagen y texto */
 }
 
-.social-icons {
-  margin-top: 1rem;
+/* Imagen */
+.hopper-image {
+  max-width: 250px; /* Ajuste para tamaño adecuado */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.social-icons a {
-  color: #060000; /* Color inicial del icono */
-  text-decoration: none;
-  margin-right: 1rem;
-  font-size: 3rem; /* Tamaño aumentado del icono */
-  transition: color 0.3s ease; /* Animación suave para cambios de color */
+/* Texto */
+.text-content {
+  flex: 1;
 }
 
-.social-icons a:hover {
-  color: #7fff00; /* Color al pasar el ratón */
+.text-content h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow: var(--text-shadow);
+  font-family: var(--font-primary);
 }
 
+.text-content p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-family: var(--font-secondary);
+}
 
 /* ROADMAP sección */
 .ROADMAP {
@@ -77,30 +118,30 @@ img {
 }
 
 .stage {
-  background: linear-gradient(135deg, #f0f8ff, #e6ffe6); /* Fondo con degradado */
+  background: var(--background-gradient);
   border-radius: 15px;
   padding: 1.5rem;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #dcdcdc;
 }
 
 .stage:hover {
-  transform: translateY(-10px); /* Efecto de elevación */
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 .stage h2 {
   margin-bottom: 1rem;
-  color: #34a853; /* Color del título */
+  color: var(--primary-color);
   font-size: 1.8rem;
   text-align: center;
-  font-family: 'Arial', sans-serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra en el texto */
+  font-family: var(--font-primary);
+  text-shadow: var(--text-shadow);
 }
 
 .stage ul {
-  list-style-type: disc; /* Estilo de viñetas */
+  list-style-type: disc;
   margin-left: 1.5rem;
   padding-left: 0;
 }
@@ -110,122 +151,136 @@ img {
   color: #333;
   font-size: 1rem;
   line-height: 1.6;
-  font-family: 'Verdana', sans-serif;
-}
-
-/* Agregamos un pequeño borde inferior decorativo */
-.stage:after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 4px;
-  background: #34a853; /* Verde para CoinHopper */
-  margin: 1rem auto 0;
-  border-radius: 2px;
-}
-
-/* Contenedor principal */
-.definition-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto;
-  max-width: 1200px;
-}
-
-/* Estilo del contenido */
-.definition-content {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-/* Imagen */
-.hopper-image {
-  max-width: 200px;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Texto */
-.text-content {
-  flex: 1;
-}
-
-.text-content h1 {
-  font-size: 2rem;
-  color: #34a853;
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.text-content p {
-  font-size: 1.2rem;
-  color: #333;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  font-family: 'Verdana', sans-serif;
+  font-family: var(--font-secondary);
 }
 
 /* Iconos sociales */
 .social-icons {
   display: flex;
   gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .social-icons a {
-  color: #555;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
   font-size: 2rem;
+  color: #555;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #34a853;
+  color: var(--primary-color);
   transform: scale(1.2);
 }
 
-/* Fuente personalizada */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .definition-container {
+    flex-direction: column; /* Imagen y texto uno encima del otro */
+    padding: 1rem;
+    gap: 1rem;
+  }
 
-/* Títulos principales (h1, h2) */
-h1, h2 {
-  font-family: 'Montserrat', sans-serif;
+  .hopper-image {
+    order: -1; /* Mueve la imagen arriba */
+    max-width: 100%; /* Ajusta imagen al ancho completo */
+    margin-bottom: 1rem; /* Espacio entre imagen y texto */
+  }
+
+  .text-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  .stages-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stage {
+    padding: 1rem;
+  }
+}
+
+
+/* Contenedor del eslogan */
+.slogan-container {
+  background: linear-gradient(135deg, #34a853, #9fdf9f);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 2rem auto;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+}
+
+/* Estilo del eslogan */
+.slogan {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 0;
   text-transform: uppercase;
-  color: #ebf2ed; /* Verde armónico */
-  letter-spacing: 1.2px;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  animation: glow 2s infinite alternate;
 }
 
-/* Efecto sutil de glow */
-h1 {
-  font-size: 2.2rem;
-  text-shadow: 1px 1px 3px rgba(52, 168, 83, 0.4); /* Resplandor más suave */
+/* Efecto de brillo animado */
+@keyframes glow {
+  0% {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 10px #ffffff, 0 0 20px #9fdf9f;
+  }
+  100% {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 0 0 20px #ffffff, 0 0 30px #9fdf9f;
+  }
 }
 
-h2 {
-  font-size: 1.8rem;
-  position: relative;
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .slogan-container {
+    padding: 1rem;
+  }
 }
 
-h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: #34a853;
-  margin: 0.5rem auto 0;
-  border-radius: 2px;
+
+.buy-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem 2rem;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  text-align: center;
 }
 
-/* Hover con animación más profesional */
-h1:hover, h2:hover {
-  color: #2e7d32; /* Verde oscuro */
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+.buy-button:hover {
+  background: linear-gradient(90deg, #feb47b, #ff7e5f);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(255, 126, 95, 0.5), 0 0 10px rgba(255, 126, 95, 0.7);
+  color: #fff;
 }
